@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-ink: #15110f;
+            --color-panel: #201a17;
+            --color-line: #3a312b;
+            --color-cream: #efe6da;
+            --color-muted: #a39789;
+            --color-brick: #e0562f;
+            --color-brick-dark: #b9411f;
+            --font-display: "Fraunces", Georgia, serif;
+            --font-body: "Public Sans", system-ui, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-ink text-cream font-body leading-relaxed selection:bg-brick selection:text-white">
+    <header class="fixed inset-x-0 top-0 z-10 bg-ink border-b border-line">
+        <div class="max-w-[1100px] h-15 mx-auto px-5 flex items-center justify-between">
+            <a class="flex items-center gap-2 font-display font-bold text-[1.3rem] tracking-tight" href="index.html">
+                <svg class="w-6.5 h-6.5 text-brick" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v3h2.5l1.5-3H4zm4.5 0l-1.5 3h3l1.5-3H8.5zm5 0l-1.5 3h3l1.5-3h-3zm5 0l-1.5 3H20V6h-1.5zM4 11v7h16v-7H4z" />
+                </svg>
+                <span>MovieHub</span>
+            </a>
+
+            <button id="hamburger" type="button" aria-label="Menu" class="md:hidden p-1.5 cursor-pointer">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <nav id="options"
+                class="hidden md:flex absolute md:static top-full inset-x-0 gap-6.5 px-5 md:px-0 pb-3 md:pb-0 bg-ink border-b md:border-b-0 border-line text-muted text-[0.95rem]">
+                <a class="block py-2.5 md:py-1 hover:text-cream md:border-b-2 border-transparent md:hover:border-brick" href="index.html">Home</a>
+                <a class="block py-2.5 md:py-1 hover:text-cream md:border-b-2 border-transparent md:hover:border-brick" href="movieDetails.html">About</a>
+                <a class="block py-2.5 md:py-1 hover:text-cream md:border-b-2 border-transparent md:hover:border-brick" href="index.html">Search</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-[1100px] mx-auto px-5 pt-25 pb-18">
+        <form id="movie-form" action="" class="flex max-w-140 mb-11">
+            <input id="movie-input" type="text" placeholder="Search movie title..." autocomplete="off"
+                class="flex-1 min-w-0 px-3.5 py-3 bg-panel border border-line border-r-0 rounded-l-[3px] text-cream placeholder:text-muted focus:outline-none focus:border-brick">
+            <button
+                class="px-5.5 bg-brick border border-brick rounded-r-[3px] text-white font-semibold cursor-pointer transition-colors hover:bg-brick-dark hover:border-brick-dark">Search</button>
+        </form>
+
+        <div id="movie-hub"
+            class="grid grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-x-4 gap-y-6 md:gap-x-5 md:gap-y-8">
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
